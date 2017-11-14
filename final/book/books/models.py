@@ -38,7 +38,7 @@ class Book(models.Model):
 
     class Meta(object):
         """Options."""
-        db_table = "books_book"
+        db_table = 'books_book'
         verbose_name = _("Book")
         verbose_name_plural = _("Books")
 
