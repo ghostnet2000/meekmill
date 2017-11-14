@@ -27,6 +27,7 @@ class Tag(models.Model):
 class Book(models.Model):
     """Book model."""
 
+
     title = models.CharField(max_length=255)
     image = models.ImageField(null=True,
                               blank=True,
@@ -37,7 +38,7 @@ class Book(models.Model):
 
     class Meta(object):
         """Options."""
-
+        db_table = "books_book"
         verbose_name = _("Book")
         verbose_name_plural = _("Books")
 
