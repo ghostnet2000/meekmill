@@ -25,10 +25,10 @@
                 <div class="col-md-3 offset8">
                     <h5 class="list-group-item-heading"> Title: {{ book.title }} </h5>
                     <p class="list-group-item-text"> Author: {{ book.author }} </p>
-                    <p> Description: {{ book.description }} </p>
+                    <p id='det' iclass="list-group-item-text"> Description: {{ book.description }} </p>
                     <p class="list-group-item-text"> Year: {{ book.year }} </p>
                     <form action="{% url 'books:delete_book' book.id %}" method="post" style="display: inline;">
-                        {% csrf_token %}
+det{% csrf_token %}
                         <button type="submit" class="btn btn-default btn-xs">
                             <span class="glyphicon glyphicon-trash"></span>&nbsp; Delete
                         </button>

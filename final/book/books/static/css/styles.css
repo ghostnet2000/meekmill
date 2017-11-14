@@ -12,12 +12,9 @@
 	max-height: 200px; 
 }
 
-.media-body__width-fix {
-  position: absolute;
-  left:0;
-  right:0;
-  top:0;
-  bottom:0;
+
+#det {
+    width: 700px ;
 }
 
 #details > .panel {
@@ -27,8 +24,8 @@
 }
 
 a.list-group-item {
-    height: 125px;
-    min-height:125px;
+    height: 200px;
+    min-height:155px;
 }
 a.list-group-item.active small {
     color:#fff;
