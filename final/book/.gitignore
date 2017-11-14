@@ -1,0 +1,7 @@
+__pycache__
+db.sqlite3
+.sass-cache
+node_modules
+.idea/
+/media/
+/static/

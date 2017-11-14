@@ -1,0 +1,19 @@
+{% extends "form_template.html" %}
+{% load i18n %}
+
+{% block before_form %}
+
+<fieldset class="scheduler-border">
+    {#<legend class="scheduler-border">{% trans "Ingredient form" %}</legend>#}
+
+{% endblock %}
+
+{% block after_form %}
+
+    {% if with_delete_button %}
+        {#<div class="hidden">{{ form.DELETE }}</div>#}
+        <button type="button" class="btn btn-danger btn-xs" data-formset-delete-button>{% trans "Delete form" %}</button>
+    {% endif %}
+
+</fieldset>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load i18n static ratings %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+    <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+{% endblock %}
+
+{% block title %}{% trans "Detail Page" %}{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid" >
+    <div class="col-sm-12 col-md-7 col-md-offset-2" id="details">
+        <div class="panel panel-default">
+
+            <div class="post-timer">
+                <div class="row">
+                    {% ratings book %}
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <div class="timer-left">
+                            <h2>{{ book.title }}</h2>
+
+                            <ul class="clearfix">
+                                <li>
+                                    <span>{% trans "Prep time" %}</span>
+                                    <span class="clc-icon"> {{ book.prep_time|default:"" }} </span>
+                                </li>
+                                <li>
+                                    <span>{% trans "Cook time" %}</span>
+                                    <span class="clc-icon"> {{ book.cooking_time|default:"" }} </span>
+                                </li>
+                                <li>
+                                    <span>{% trans "Total time" %}</span>
+                                    <span class="clc-icon" id="total_time"> ??:??:?? </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="post-others">
+                            <span>Serves: {{ book.servings|default:"" }} </span>
+                        </div>
+                        <div class="timer-desc">
+                            <h3>{% trans "Ingredients" %}</h3>
+                            <ul>
+                                {% for ingredient in book.ingredients.all %}
+                                <li>{{ ingredient }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="timer-right">
+                            {% if book.image %}
+                                <img  src="{{ book.image.url }}" />
+                            {% else %}
+                                <img  src="{% static 'books/images/none.png' %}" />
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="timer-instruction">
+                            <h3>{% trans "Instructions" %}</h3>
+                            <p style="font-size:12px"> {{ book.instructions|default:"" }} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        // Add two time string
+        function addtime( time1, time2 ){
+            time1 = time1.split(":");
+            time2 = time2.split(":");
+            var hh1 = parseInt(time1[0]) + parseInt(time2[0]);
+            var mm1 = parseInt(time1[1]) + parseInt(time2[1]);
+            var ss1 = parseInt(time1[2]) + parseInt(time2[2]);
+
+            if (ss1 > 59) {
+                var ss2 = ss1 % 60;
+                var ssx = ss1 / 60;
+                var ss3 = parseInt(ssx);//add into min
+                var mm1 = parseInt(mm1) + parseInt(ss3);
+                var ss1 = ss2;
+            }
+            if (mm1 > 59) {
+                var mm2 = mm1 % 60;
+                var mmx = mm1 / 60;
+                var mm3 = parseInt(mmx);//add into hour
+                var hh1 = parseInt(hh1) + parseInt(mm3);
+                var mm1 = mm2;
+            }
+            return hh1 + ':' + mm1 + ':' + ss1;
+        }
+        $('#total_time').text( addtime( "{{ book.prep_time }}", "{{ book.cooking_time }}"));
+    </script>
+</div>
+{% endblock %}

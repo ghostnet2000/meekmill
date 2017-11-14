@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Home Page" %}{% endblock %}
+
+{% load static %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+		<div class="well">
+        <h1 class="text-center">{% trans "Books" %}</h1>
+        <div class="list-group">
+         {% for book in all_books %}
+          <a href="{% url 'books:detail' book.id %}" class="list-group-item">
+                <div class="media col-md-3">
+                    <figure class="pull-left">
+                        {% if book.image %}
+                            <img  src="{{ book.image.url }}" id="pic" class="media-object img-rounded img-responsive" />
+                        {% else %}
+                            <img  src="{% static 'books/images/none.png' %}" id="pic" class="media-object img-rounded img-responsive" />
+                        {% endif %}
+                    </figure>
+                </div>
+                <div class="col-md-3 offset8">
+                    <h5 class="list-group-item-heading"> {{ book.title }} </h5>
+                    <p class="list-group-item-text"> Serves: {{ book.servings }} </p>
+                    <form action="{% url 'books:delete_book' book.id %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-default btn-xs">
+                            <span class="glyphicon glyphicon-trash"></span>&nbsp; Delete
+                        </button>
+                    </form>
+                </div>
+          </a>
+          {% endfor %}
+        </div>
+        </div>
+	</div>
+</div>
+
+{% endblock %}
