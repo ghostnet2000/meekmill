@@ -31,8 +31,9 @@
                     -->
                     <div class="media-body">
                         <h4 class="media-heading">Title: {{ book.title }} </h4> <!-- heading 1 -->
-                        iOS is a Mobile Operating System Designed and Developed by
-                        Apple Inc.
+                        <div class="media-body__width-fix">
+                          <div class="book-ellipsis-overflow-class"> Description: {{ book.description }} </div>
+                        </div>
     
                         {% csrf_token %}
                         <button type="submit" class="btn btn-default btn-xs">
