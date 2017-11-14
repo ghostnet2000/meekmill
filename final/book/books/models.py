@@ -34,7 +34,7 @@ class Book(models.Model):
                               upload_to='images')
     author = models.CharField(max_length=25)
     year = models.CharField(max_length=4)
-    description = models.TextField(max_length=50, 
+    description = models.TextField(max_length=200, 
                                    null=True)
 
     class Meta(object):
