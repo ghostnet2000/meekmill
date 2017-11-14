@@ -21,10 +21,10 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 from books import views
-from rest_framework import routers
+from rest_framework_extensions.routers import ExtendedDefaultRouter
 
-router = routers.SimpleRouter()
-router.register(r'books', views.BookViewSet)
+router = ExtendedDefaultRouter()
+router.register(r'books', views.BookViewSet, base_name='book')
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
