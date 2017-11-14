@@ -38,7 +38,7 @@ def index(request):
     return render(request, 'index.html', context)
 
 
-def detail(request, book_id):
+#def detail(request, book_id):
     """Detail view.
 
     :param request:
@@ -47,6 +47,7 @@ def detail(request, book_id):
     :type book_id: int
     :return:
     :rtype: django.http.HttpResponse
+    """
     """
     try:
         book = Book.objects.get(pk=book_id)
@@ -57,6 +58,7 @@ def detail(request, book_id):
         'book': book
     }
     return render(request, 'detail.html', context)
+    """
 
 
 def delete_book(request, book_id):
