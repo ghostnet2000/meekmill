@@ -105,3 +105,22 @@ Admin application
 All of the models are editable in the admin. Navigate to the
 http://localhost:8000/admin/ and see the list of available options.
 
+
+/api/books/
+
+The book endpoint for saving incoming Book data.
+POST
+
+Sample POST request:
+
+POST http://127.0.0.1:8000/api/books/
+
+Data/payload:
+
+{
+    "title": "fjgjf",
+    "author": "kkffgjfgk",
+    "description": "dkfffdkkj",
+    "year": "1981",
+    "image": "http://35.196.174.115:8001/media/images/image10.jpeg"
+},
