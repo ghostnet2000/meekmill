@@ -31,7 +31,7 @@ class Book(models.Model):
     image = models.ImageField(null=True,
                               blank=True,
                               upload_to='images')
-    author = models.CharField(25)
+    author = models.CharField(max_length=25)
     description = models.CharField(null=True, blank=True, max_length=255)
     year = models.TextField()
 
