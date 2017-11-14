@@ -101,7 +101,7 @@ WSGI_APPLICATION = 'book_box.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'books',
+        'NAME': 'books_book',
         'USER': 'viwe',
         'PASSWORD': 'viwe',
         'HOST': 'localhost',
