@@ -30,43 +30,6 @@
 
                         <hr/>
 
-                        <div id="formset" data-formset-prefix="{{ ingredient_formset.prefix }}">
-                            {{ ingredient_formset.management_form }}
-                            <h3>{% trans "Ingredients" %}</h3>
-                            <div data-formset-body>
-                            {% for form in ingredient_formset %}
-                                {% with with_delete_button=False %}
-                                    <div data-formset-form>
-                                    {% include 'formset_form_template.html' %}
-                                    </div>
-                                {% endwith %}
-                            {% endfor %}
-                            </div>
-
-                            <!-- The empty form template. By wrapping this in a <script> tag, the
-                            __prefix__ placeholder can easily be replaced in both attributes and
-                            any scripts -->
-                            <script type="form-template" data-formset-empty-form>
-                                {% escapescript %}
-                                    <div data-formset-form>
-                                        {% with form=ingredient_formset.empty_form %}
-                                            {% include 'formset_form_template.html' %}
-                                            {#<div class="hidden">{{ form.DELETE }}</div>#}
-                                        {% endwith %}
-                                        {#<button type="button" class="btn btn-danger btn-xs" data-formset-delete-button>{% trans "Delete form" %}</button>#}
-                                    </div>
-                                {% endescapescript %}
-                            </script>
-
-                            <!-- This button will add a new form when clicked -->
-                            <input type="button" value="{% trans 'Add another' %}" class="btn btn-success btn-xs" data-formset-add>
-
-                            <script>jQuery(function($) {
-                                $("#formset").formset({
-                                    animateForms: true
-                                });
-                            });</script>
-
 
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
@@ -79,25 +42,5 @@
         </div>
 
     </div>
-    <script type="text/javascript">
-        <!--$(document).ready(function() {-->
-            <!--var max_fields      = 10; //maximum input boxes allowed-->
-            <!--var wrapper         = $(".input_fields_wrap"); //Fields wrapper-->
-            <!--var add_button      = $(".add_field_button"); //Add button ID-->
-            <!---->
-            <!--var x = 1; //initlal text box count-->
-            <!--$(add_button).click(function(e){ //on add input button click-->
-                <!--e.preventDefault();-->
-                <!--if(x < max_fields){ //max input box allowed-->
-                    <!--x++; //text box increment-->
-                    <!--$(wrapper).append('<div><input type="text" name="mytext[]"/><a href="#" class="remove_field">Remove</a></div>'); //add input box-->
-                <!--}-->
-            <!--});-->
-            <!---->
-            <!--$(wrapper).on("click",".remove_field", function(e){ //user click on remove text-->
-                <!--e.preventDefault(); $(this).parent('div').remove(); x&#45;&#45;;-->
-            <!--})-->
-        <!--});-->
-    </script>
 </div>
 {% endblock %}

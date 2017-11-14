@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     # ************************************************************************
     'rest_framework',  # REST API
 
-    'star_ratings',  # Ratings app
     'jquery',  # jQuery integration app
     'djangoformsetjs',  # JavaScript for FormSets
 
