@@ -54,7 +54,7 @@ def detail(request, book_id):
         raise Http404(_("Not found!"))
 
     context = {
-        'book': book
+        'books': book
     }
     return render(request, 'detail.html', context)
 
