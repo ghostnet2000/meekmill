@@ -11,7 +11,7 @@
         <h1 class="text-center">{% trans "Books" %}</h1>
         <div class="list-group">
          {% for book in all_books %}
-          <a href="{% url 'books:detail' book.id %}" class="list-group-item">
+          <a class="list-group-item">
                 <div class="media col-md-3">
                     <figure class="pull-left">
                         {% if book.image %}
