@@ -23,7 +23,7 @@ class BookSerializer(serializers.HyperlinkedModelSerializer):
 
     def create(self, validated_data):
         """Create."""
-        # Create Book without ingredients or tags
+        # Create Book without tags
         tags_data = validated_data.pop('title')
         book = models.Book.objects.create(**validated_data)
 

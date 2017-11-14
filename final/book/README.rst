@@ -26,12 +26,10 @@ Installation
 
 Implementation details
 ======================
-- For ratings the package `django-star-ratings
-  <https://pypi.python.org/pypi/django-star-ratings>`_ is used.
+
 - For formsets Django's standard formsets functionality is used, along with
   third-party package `django-formset-js
-  <https://pypi.python.org/pypi/django-formset-js>`_ which is responsible for
-  handling the JavaScript addition/removal of ingredients.
+
 
 Usage
 =====
@@ -77,16 +75,12 @@ Public application flow
     Navigate to http://localhost:8000/ and click on the right "Add Book"
     link in the top right corner.
 
-    Fill in a book data, add ingredient and make sure to press "Add another"
-    button a couple of times, so that more formsets are created. Then press
-    submit. If all goes well, you'll be redirected to the listing of books.
+    Fill in a book data Then presssubmit. If all goes well, you'll be redirected to the listing of books.
     Go to books admin http://localhost:8000/admin/books/book/ and check
-    the newly created book. If all goes well, you'll see it along with
-    all ingredients created.
+    the newly created book. If all goes well, you'll see.
 
     Create a couple of more books.
 
-    Go to the detail page of each book and rate it (press the stars).
 
     Then proceed to the next step.
 
