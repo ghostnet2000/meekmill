@@ -16,9 +16,8 @@ class BookForm(forms.ModelForm):
         fields = (
             'id',
             'title',
+            'author',
+            'description',
+            'year',
             'image',
-            'prep_time',
-            'cooking_time',
-            'servings',
-            'instructions',
         )

@@ -31,11 +31,9 @@ class Book(models.Model):
     image = models.ImageField(null=True,
                               blank=True,
                               upload_to='images')
-    ratings = GenericRelation(Rating, related_query_name='books')
-    prep_time = models.DurationField(null=True, blank=True)
-    cooking_time = models.DurationField(null=True, blank=True)
-    servings = models.CharField(null=True, blank=True, max_length=255)
-    instructions = models.TextField()
+    author = models.CharField(25)
+    description = models.CharField(null=True, blank=True, max_length=255)
+    year = models.TextField()
 
     class Meta(object):
         """Options."""

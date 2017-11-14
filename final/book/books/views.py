@@ -49,8 +49,7 @@ def detail(request, book_id):
     :rtype: django.http.HttpResponse
     """
     try:
-        book = Book.objects.prefetch_related('ingredients') \
-                               .get(pk=book_id)
+        book = Book.objects.get(pk=book_id)
     except Book.DoesNotExist as err:
         raise Http404(_("Not found!"))
 

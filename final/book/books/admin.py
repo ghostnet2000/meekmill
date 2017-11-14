@@ -5,14 +5,14 @@ from .models import Book
 class BookAdmin(admin.ModelAdmin):
     """Book admin."""
 
-    fields = (
-        'title',
-        'image',
-        'prep_time',
-        'cooking_time',
-        'servings',
-        'instructions',
-    )
+	fields = (
+	    'id',
+	    'title',
+	    'author',
+	    'description',
+	    'year',
+	    'image',
+	)
 
 # Register your models here.
 admin.site.register(Book, BookAdmin)

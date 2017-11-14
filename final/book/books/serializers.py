@@ -15,11 +15,9 @@ class BookSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'title',
-            'instructions',
-            'ratings',
-            'servings',
-            'prep_time',
-            'cooking_time',
+            'author',
+            'description',
+            'year',
             'image',
         )
 
@@ -34,11 +32,9 @@ class BookSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         
         instance.title = validated_data.get('title')
-        instance.instructions = validated_data.get('instructions')
-        instance.servings = validated_data.get('serve_with')
-        instance.ratings = validated_data.get('ratings')
-        instance.prep_time = validated_data.get('prep_time')
-        instance.cooking_time = validated_data.get('cooking_time')
+        instance.author = validated_data.get('author')
+        instance.description = validated_data.get('description')
+        instance.year = validated_data.get('year')
         instance.image = validated_data.get('image')
 
         instance.save()
