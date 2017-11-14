@@ -28,13 +28,13 @@ class Book(models.Model):
     """Book model."""
 
 
-    title = models.CharField(max_length=255)
-    image = models.ImageField(null=True,
+    title = models.CharField(max_length=50)
+    image = models.ImageField(null=Tr,0,
                               blank=True,
                               upload_to='images')
     author = models.CharField(max_length=25)
     year = models.CharField(max_length=4)
-    description = models.TextField(null=True)
+    description = models.TextField(max_length=50,null=True)
 
     class Meta(object):
         """Options."""
